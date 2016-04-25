@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sudo pacman -S ccze \
+python-pip \
+dropbox \
+vim \
+jdk8-openjdk \
+intellij-idea-community-edition \
+ttf-hack
+
+chmod +x ./vimstuff.sh
+./vimstuff.sh
+
+chmod +x ./gitstuff.sh
+./gitstuff.sh
