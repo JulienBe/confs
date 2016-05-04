@@ -6,7 +6,8 @@ dropbox \
 vim \
 jdk8-openjdk \
 intellij-idea-community-edition \
-ttf-hack
+ttf-hack \
+chromium
 
 chmod +x ./vimstuff.sh
 ./vimstuff.sh
