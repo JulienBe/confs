@@ -1,16 +1,16 @@
 #!/bin/bash
 
 sudo pacman -S ccze \
-python-pip \
 dropbox \
 vim \
-jdk8-openjdk \
-intellij-idea-community-edition \
 ttf-hack \
 chromium
 
-chmod +x ./vimstuff.sh
-./vimstuff.sh
+exec ./devstuff.sh
+exec ./vimstuff.sh
+exec ./gitstuff.sh
 
-chmod +x ./gitstuff.sh
-./gitstuff.sh
+function exec {
+  chmod +x "$1"
+  ./"$1"
+}
