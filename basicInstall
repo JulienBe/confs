@@ -10,6 +10,8 @@ exec ./devstuff.sh
 exec ./vimstuff.sh
 exec ./gitstuff.sh
 
+cp .bashrc ~/.bashrc
+
 function exec {
   chmod +x "$1"
   ./"$1"
