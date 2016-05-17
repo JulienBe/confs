@@ -5,7 +5,9 @@ docker \
 dropbox \
 vim \
 ttf-hack \
-chromium
+chromium \
+figlet \ 
+lolcat
 
 exec ./devstuff.sh
 exec ./vimstuff.sh
