@@ -4,7 +4,9 @@ sudo pacman -S python-pip \
 jdk8-openjdk \
 maven \
 intellij-idea-community-edition \
-ruby
+ruby \
+scala \
+sbt
 
 gem install asciidoctor
 
