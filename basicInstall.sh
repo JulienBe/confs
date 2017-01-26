@@ -9,13 +9,13 @@ chromium \
 figlet \ 
 lolcat
 
-exec ./devstuff.sh
-exec ./vimstuff.sh
-exec ./gitstuff.sh
-
-cp .bashrc ~/.bashrc
-
-function exec {
+function execFile {
   chmod +x "$1"
   ./"$1"
 }
+
+execFile ./devstuff.sh
+execFile ./vimstuff.sh
+execFile ./gitstuff.sh
+
+cp .bashrc ~/.bashrc
