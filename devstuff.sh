@@ -12,4 +12,3 @@ gem install asciidoctor
 
 curl https://raw.githubusercontent.com/foundweekends/conscript/master/setup.sh | sh
 cs foundweekends/giter8
-

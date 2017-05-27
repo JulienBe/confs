@@ -1,12 +1,13 @@
 #!/bin/bash
 
-sudo pacman -S ccze \
+sudo pacman -S \
+ccze \
 docker \
 dropbox \
 vim \
 ttf-hack \
 chromium \
-figlet \ 
+figlet \
 lolcat
 
 exec ./devstuff.sh
@@ -14,6 +15,7 @@ exec ./vimstuff.sh
 exec ./gitstuff.sh
 
 cp .bashrc ~/.bashrc
+source ~/.bashrc
 
 function exec {
   chmod +x "$1"
