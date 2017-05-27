@@ -105,4 +105,4 @@ nmap <F8> :TagbarToggle<CR>
 let mapleader = ","
 let g:mapleader = ","
 
-colorscheme elflord
+colorscheme molokai
