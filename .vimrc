@@ -47,21 +47,23 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle "majutsushi/tagbar"
-Bundle "gmarik/Vundle.vim"
 Bundle "marcweber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-Bundle "SirVer/ultisnips"
 Bundle "osyo-manga/vim-brightest"
 Bundle "chase/vim-ansible-yaml"
 Bundle "itchyny/lightline.vim"
-Bundle "kien/ctrlp.vim"
+Bundle "derekwyatt/vim-scala"
 Bundle "scrooloose/nerdtree"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
+Bundle "majutsushi/tagbar"
+Bundle "gmarik/Vundle.vim"
 Bundle "rodjek/vim-puppet"
 Bundle "tpope/vim-fugitive"
+Bundle "SirVer/ultisnips"
+Bundle "tomtom/tlib_vim"
+Bundle "kien/ctrlp.vim"
 Bundle "fatih/vim-go"
+
 call vundle#end()
 filetype plugin indent on
 
