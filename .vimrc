@@ -26,7 +26,7 @@ set wrap
 set textwidth=0
 set formatoptions=qrn1
 "set colorcolumn=85
-set list
+set nolist
 set listchars=tab:▸\ ,eol:¬
 
 " ignore
