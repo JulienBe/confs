@@ -1,110 +1,51 @@
-syntax on
-set autochdir
-set smartcase
-set ek
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set incsearch
-set hlsearch
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-set autoindent
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+call plug#begin('~/.vim/plugged')
 
-set encoding=utf-8
-set showmode
-set showcmd
-set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
-set noeb
-set ttyfast
-set backspace=indent,eol,start
-set wrap
-set textwidth=0
-set formatoptions=qrn1
-"set colorcolumn=85
-set nolist
-set listchars=tab:▸\ ,eol:¬
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
+Plug 'derekwyatt/vim-scala'
+" Make sure you use single quotes
 
-" ignore
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.pyc,*.pyo
-let g:netrw_list_hide= '.*\.pyc$,.*\.pyo$,*\.swp$,tags'
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plug 'junegunn/vim-easy-align'
 
-" undo
-set undodir=~/.vim/tmp
-set undofile
-set undolevels=1000 "maximum number of changes that can be undone
-set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+" Any valid git URL is allowed
+" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" detect puppet filetype
-autocmd BufRead,BufNewFile *.pp set filetype=puppet
-autocmd BufRead,BufNewFile *.pp setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab textwidth=80 smarttab
+" Multiple Plug commands can be written in a single line using | separators
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Bundle "marcweber/vim-addon-mw-utils"
-Bundle "osyo-manga/vim-brightest"
-Bundle "chase/vim-ansible-yaml"
-Bundle "itchyny/lightline.vim"
-Bundle "derekwyatt/vim-scala"
-Bundle "scrooloose/nerdtree"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-Bundle "majutsushi/tagbar"
-Bundle "gmarik/Vundle.vim"
-Bundle "rodjek/vim-puppet"
-Bundle "tpope/vim-fugitive"
-Bundle "SirVer/ultisnips"
-Bundle "tomtom/tlib_vim"
-Bundle "kien/ctrlp.vim"
-Bundle "fatih/vim-go"
+" On-demand loading
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-call vundle#end()
-filetype plugin indent on
+" Using a non-default branch
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-set backupdir=~/.vim/tmp
-set dir=~/.vim/tmp
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+" Plug 'fatih/vim-go', { 'tag': '*' }
 
-set laststatus=2
-set statusline=%n:%<%f\ %h%m%r\ %=%-10.(%l,%c%V%)\ %4L\ %P
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+" Plugin outside ~/.vim/plugged with post-update hook
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-set t_Co=256
+" Unmanaged plugin (manually installed and updated)
+" Plug '~/my-prototype-plugin'
 
+" Initialize plugin system
+call plug#end()
 
-"NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-" hit "-" (minus) anytime to open the file explorer to show files adjacent to
-" the one I just edit
-map - :Explore<cr>
-
-
-" sudo write
-cmap w!! w !sudo tee %
-set pastetoggle=<F9>
-
-nmap <F7> :NERDTreeToggle<CR>
-
-nmap <F8> :TagbarToggle<CR>
-
-let mapleader = ","
-let g:mapleader = ","
-
-colorscheme molokai
+syn on
+syntax enable
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
